@@ -26,5 +26,5 @@ class BusinessModel(models.Model):
 	name_project = models.CharField(max_length=100)
 	description = models.TextField()
 	size = models.CharField(max_length=10)
-	
+	clasificacion = models.CharField(max_length=10)
 
