@@ -10,8 +10,8 @@ class BusinessModel(models.Model):
 	colony = models.CharField(max_length=100)
 	cpostal = models.IntegerField()
 	adress_visits = models.TextField()
-	tel = models.CharField()
-	fax = models.CharField()
+	tel = models.CharField(max_length=10)
+	fax = models.CharField(max_length=20)
 	email = models.EmailField()
 	replegal = models.CharField(max_length=40)
 	start_date = models.DateField()
@@ -24,4 +24,7 @@ class BusinessModel(models.Model):
 	acteconomica = models.CharField(max_length=250)
 	products_services = models.TextField()
 	name_project = models.CharField(max_length=100)
+	description = models.TextField()
+	size = models.CharField(max_length=10)
 	
+
