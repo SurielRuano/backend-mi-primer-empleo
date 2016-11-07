@@ -8,8 +8,19 @@ SEXO = (
 	(FEMENINO, 'Femenino'), 
 	)
 	
-class Egresado(models.Model):
 
+
+class Carrera (models.Model):
+
+	nombre = models.CharField(max_length=100)
+	#nivel = ???
+	#area = ???
+	#sectores = ???
+	#validada = ???
+	def __str__ (self):
+		return self.nombre
+
+class Egresado(models.Model):
 
 	nombre = models.CharField(max_length=50, null=True)
 	apellidop = models.CharField(max_length=50, null=True)
@@ -18,7 +29,7 @@ class Egresado(models.Model):
 	#lugar = ???
 	sexo = models.CharField(max_length=1, choices=SEXO, default=MASCULINO, null=True)
 	curp = models.CharField(max_length=18, null=True)
-	#municipio = #
+	#municipio = moodels.OneToOneField(Municipio)
 	calle = models.CharField(max_length=50, null=True)
 	#no = ???
 	colonia = models.CharField(max_length=50, null=True)
@@ -29,7 +40,7 @@ class Egresado(models.Model):
 	email = models.EmailField(null=True)
 	#nivel = ???
 	estudioen = models.CharField(max_length=100, null=True)
-	#carrera = #
+	carrera = models.OneToOneField(Carrera, null=True)
 	#situacion = ???
 	añoegreso = models.DateField(auto_now_add=True, null=True)
 	fechaingresoprograma = models.DateField(auto_now_add=True, null=True)
@@ -45,7 +56,7 @@ class Egresado(models.Model):
 	#modalidadtitulo = ???
 	#empleoformal = ???
 	#empleocual = ???
-	#municipios = #
+	#municipios = Repetido
 	#sectores = #
 	#compromiso = #
 	#folio 
@@ -69,3 +80,6 @@ class Egresado(models.Model):
 	#visto
 	#carpeta
 	#concluye
+
+	def __str__ (self):
+		return self.nombre
