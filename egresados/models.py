@@ -35,7 +35,7 @@ class Egresado(models.Model):
 	colonia = models.CharField(max_length=50, null=True)
 	fechaentregatitulo = models.DateField(auto_now_add=True, null=True)
 	cp = models.IntegerField(null=True)
-	telefonofijo = models.IntegerField(null=True)
+	telefonofijo = models.IntegerField( null=True)
 	celular = models.IntegerField(null=True)
 	email = models.EmailField(null=True)
 	#nivel = ???
@@ -83,3 +83,22 @@ class Egresado(models.Model):
 
 	def __str__ (self):
 		return self.nombre
+
+
+#class Expediente(models.Model):
+
+class Experiencia(models.Model):
+
+	puesto = models.CharField(max_length=100)
+	#fecha = ???
+	empresa = models.CharField(max_length=100)
+	actividades = models.TextField()
+
+	def __str__ (self):
+		return self.puesto
+
+#class Expectativa(models.Model):
+
+#class Habilidad(models.Model):
+
+
