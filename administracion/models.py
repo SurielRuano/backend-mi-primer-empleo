@@ -3,6 +3,7 @@ from egresados.models import Egresado
 
 
 class sedeco(models.Model):
+
 	 nombre = models.CharField(max_length=100)
 	 usuario = models.CharField(max_length=100)
 	 clave = models.CharField(max_length=100)
@@ -18,22 +19,22 @@ class sedeco(models.Model):
 
 class encuesta(models.Model):
 
-	 OPCIONES_D = (
-        (FACEBOOK, 'Facebook'),
-        (TWITTER, 'Twitter'),
-        (PERIODICO, 'Periodico'),
-        (TV, 'Tv'),
-        (RADIO, 'Radio'),
-        (ESCUELA, 'Escuela'),
-        (AMIGO, 'Amigo'),
-        (EMPRESA, 'Empresa'),
-        (OTRO, 'Otro medio'),
-    )
+	OPCIONES_D = (
+	        ('FACEBOOK', 'Facebook'),
+	        ('TWITTER', 'Twitter'),
+	        ('PERIODICO', 'Periodico'),
+	        ('TV', 'Tv'),
+	        ('RADIO', 'Radio'),
+	        ('ESCUELA', 'Escuela'),
+	        ('AMIGO', 'Amigo'),
+	        ('EMPRESA', 'Empresa'),
+	        ('OTRO', 'Otro medio'),
+	    )
 
-	sedeco = models.ForeignKey(sedeco null=True)
+	sedeco = models.ForeignKey(sedeco)
 	fecha_captura = models.DateField()
 	aporte = models.CharField(max_length = 200)
-	medio_difusion_captado = models.CharField(max_length = 20,choices = OPCIONES_D)
+	medio_difusion_captado = models.CharField("Como te enteraste del programa",max_length = 20,choices = OPCIONES_D)
 	activ_perfil = models.BooleanField()
 	medios_necesarios = models.BooleanField()
 	capacitacion = models.BooleanField()
@@ -54,6 +55,7 @@ class encuesta(models.Model):
 	# lugar = models.CharField()
 
 
+
 class reporteMensual(models.Model):
 
 	egresado = models.ForeignKey(Egresado)
@@ -70,11 +72,11 @@ class reporteMensual(models.Model):
 	capacitacion = models.CharField(max_length=200)
 	recursos = models.BooleanField()
 	experiencia = models.BooleanField()
-	emp_puntualidad = models.BooleanField(blank=True,null=True)
-	emp_imagen = models.BooleanField(blank=True,null=True)
-	emp_actitud = models.BooleanField(blank=True,null=True)
-	emp_aprendio = models.BooleanField(blank=True,null=True)
-	emp_objetivos_cump = models.BooleanField(blank=True,null=True)
+	emp_puntualidad = models.BooleanField()
+	emp_imagen = models.BooleanField()
+	emp_actitud = models.BooleanField()
+	emp_aprendio = models.BooleanField()
+	emp_objetivos_cump = models.BooleanField()
 	validado= models.BooleanField()
 	fecha_validacion = models.DateField()
 	pago = models.BooleanField()
