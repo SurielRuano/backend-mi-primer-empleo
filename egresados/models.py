@@ -22,37 +22,37 @@ class Carrera (models.Model):
 
 class Egresado(models.Model):
 
-	nombre = models.CharField(max_length=50, null=True)
-	apellidop = models.CharField(max_length=50, null=True)
-	apellidom = models.CharField(max_length=50, null=True)
-	edad = models.IntegerField(null=True)
+	nombre = models.CharField(max_length=50, null=True, blank=True)
+	apellidop = models.CharField(max_length=50, null=True, blank=True)
+	apellidom = models.CharField(max_length=50, null=True, blank=True)
+	edad = models.IntegerField(null=True, blank=True)
 	#lugar = ???
-	sexo = models.CharField(max_length=1, choices=SEXO, default=MASCULINO, null=True)
-	curp = models.CharField(max_length=18, null=True)
+	sexo = models.CharField(max_length=1, choices=SEXO, default=MASCULINO, null=True, blank=True)
+	curp = models.CharField(max_length=18, null=True, blank=True)
 	#municipio = moodels.OneToOneField(Municipio)
-	calle = models.CharField(max_length=50, null=True)
+	calle = models.CharField(max_length=50, null=True, blank=True)
 	#no = ???
-	colonia = models.CharField(max_length=50, null=True)
-	fechaentregatitulo = models.DateField(auto_now_add=True, null=True)
-	cp = models.IntegerField(null=True)
-	telefonofijo = models.IntegerField( null=True)
-	celular = models.IntegerField(null=True)
-	email = models.EmailField(null=True)
+	colonia = models.CharField(max_length=50, null=True, blank=True)
+	fechaentregatitulo = models.DateField(auto_now_add=True, null=True, blank=True)
+	cp = models.IntegerField(null=True, blank=True)
+	telefonofijo = models.IntegerField( null=True, blank=True)
+	celular = models.IntegerField(null=True, blank=True)
+	email = models.EmailField(null=True, blank=True)
 	#nivel = ???
-	estudioen = models.CharField(max_length=100, null=True)
-	carrera = models.OneToOneField(Carrera, null=True)
+	estudioen = models.CharField(max_length=100, null=True, blank=True)
+	carrera = models.OneToOneField(Carrera, null=True, blank=True)
 	#situacion = ???
-	añoegreso = models.DateField(auto_now_add=True, null=True)
-	fechaingresoprograma = models.DateField(auto_now_add=True, null=True)
+	añoegreso = models.DateField(auto_now_add=True, null=True, blank=True)
+	fechaingresoprograma = models.DateField(auto_now_add=True, null=True, blank=True)
 	#colocado = ???
-	certificado = models.FileField(upload_to = "certificado", null=True)
-	identificacion = models.FileField(upload_to = "identificación", null=True)
-	compdomicilio = models.FileField(upload_to = "domicilio", null=True)
-	titulo = models.FileField(upload_to = "titulo", null=True)
-	fcurp = models.FileField(upload_to = "curp", null=True)
-	carta = models.FileField(upload_to = "carta", null=True)
-	fechatitulacion = models.DateField(auto_now_add=True, null=True)
-	promedio = models.DecimalField(decimal_places=2, max_digits=2, null=True)
+	certificado = models.FileField(upload_to = "certificado", null=True, blank=True)
+	identificacion = models.FileField(upload_to = "identificación", null=True, blank=True)
+	compdomicilio = models.FileField(upload_to = "domicilio", null=True, blank=True)
+	titulo = models.FileField(upload_to = "titulo", null=True, blank=True)
+	fcurp = models.FileField(upload_to = "curp", null=True, blank=True)
+	carta = models.FileField(upload_to = "carta", null=True, blank=True)
+	fechatitulacion = models.DateField(auto_now_add=True, null=True, blank=True)
+	promedio = models.DecimalField(decimal_places=2, max_digits=4, null=True, blank=True)
 	#modalidadtitulo = ???
 	#empleoformal = ???
 	#empleocual = ???
@@ -61,13 +61,13 @@ class Egresado(models.Model):
 	#compromiso = #
 	#folio 
 	#perfil
-	rfc = models.CharField(max_length=13, null=True)
+	rfc = models.CharField(max_length=13, null=True, blank=True)
 	#status
 	#motivobaja = ???
 	#idvacante = #
-	curriculum = models.FileField(upload_to = "cv", null=True)
+	curriculum = models.FileField(upload_to = "cv", null=True, blank=True)
 	#psicologica ???
-	archivopsicologica = models.FileField(upload_to = "psico", null=True)
+	archivopsicologica = models.FileField(upload_to = "psico", null=True, blank=True)
 	#notarjeta = ???
 	#noseguropopular = ???
 	#segpop = ???
