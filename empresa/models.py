@@ -27,4 +27,26 @@ class BusinessModel(models.Model):
 	description = models.TextField()
 	size = models.CharField(max_length=10)
 	clasificacion = models.CharField(max_length=10)
+	sectores = models.IntegerField()
+	sector = models.CharField(max_length=10)
+	rango_trab = models.CharField(max_length=60)
+	acceso = models.CharField(max_length=60)
+	extension = models.CharField(max_length=60)
+	rfc_imagen = models.ImageField(upload_to='rfc_imagen')
+	identificacion = models.CharField(max_length=60)
+	identificacion_tutor =models.CharField(max_length=60)
+	comprobante = models.CharField(max_length=60)
+	carta =models.CharField(max_length=60)
+	pagina = models.CharField(max_length=60)
+	ubucacion =models.TextField()
+	croquis = models.CharField(max_length=60)
+	emailreproy = models.EmailField()
+	validada = models.IntegerField()
+	etapa = models.CharField(max_length=60)
+	carpeta = models.IntegerField()
+	administra = models.IntegerField()
+	visto = models.IntegerField()
 
+
+	def __str__(self):
+		return self.name
