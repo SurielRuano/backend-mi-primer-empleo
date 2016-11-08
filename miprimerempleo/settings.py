@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'egresados',
     'empresa',
     'api',
+    'administracion',
 ]
 
 MIDDLEWARE = [
