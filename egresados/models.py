@@ -15,10 +15,10 @@ SEXO = (
 class Carrera (models.Model):
 
 	nombre = models.CharField(max_length=100)
-	#nivel = ???
-	#area = ???
-	#sectores = ???
-	#validada = ???
+	nivel = models.CharField(max_length=200)
+	area = models.CharField(max_length=200)	
+	sectores = models.CharField(max_length=20)	
+	validada = models.BooleanField(default=False)
 	def __str__ (self):
 		return self.nombre
 
@@ -33,7 +33,7 @@ class Egresado(models.Model):
 	curp = models.CharField(max_length=18, null=True, blank=True)
 	#municipio = models.ForeignKey(Municipio)
 	calle = models.CharField(max_length=50, null=True, blank=True)
-	#no = ???
+	numero = models.IntegerField()
 	colonia = models.CharField(max_length=50, null=True, blank=True)
 	fechaentregatitulo = models.DateField(auto_now_add=True, null=True, blank=True)
 	cp = models.IntegerField(null=True, blank=True)
@@ -42,7 +42,7 @@ class Egresado(models.Model):
 	email = models.EmailField(null=True, blank=True)
 	#nivel = ???
 	estudioen = models.CharField(max_length=100, null=True, blank=True)
-	carrera = models.OneToOneField(Carrera, null=True, blank=True)
+	carrera = models.ForeignKey(Carrera, null=True, blank=True)
 	#situacion = ???
 	añoegreso = models.DateField(auto_now_add=True, null=True, blank=True)
 	fechaingresoprograma = models.DateField(auto_now_add=True, null=True, blank=True)
@@ -88,19 +88,45 @@ class Egresado(models.Model):
 		return self.nombre
 
 
-#class Expediente(models.Model):
+ 
 
 class Experiencia(models.Model):
 
-	puesto = models.CharField(max_length=100)
-	#fecha = ???
+	id_egresado = models.ForeignKey(Egresado)
+	puesto = models.CharField(max_length=100)	
+	fecha = models.DateField()
 	empresa = models.CharField(max_length=100)
 	actividades = models.TextField()
 
 	def __str__ (self):
 		return self.puesto
 
-#class Expectativa(models.Model):
+class Expectativa(models.Model):
+
+	id_egresado = models.ForeignKey(Egresado)
+	entrevista_lab = models.BooleanField()
+	monto_beca = models.FloatField()
+	aportacion = models.TextField(max_length=400)
+	logro = models.TextField(max_length=400)
+	logro_academico = models.CharField(max_length=400)
+	gasto_mensual = models.CharField(max_length=400)
+	empleo_buscado = models.CharField(max_length=400)
+
+
+class EstSocioEcon(models.Model):
+
+	EDOC = (
+	(MASCULINO, 'Masculino'), 
+	(FEMENINO, 'Femenino'), 
+	)
+
+	id_egresado = models.ForeignKey(Egresado)
+	edo_civil = models.CharField(max_length=50,choices = EDOC)
+	dependientes = models.IntegerField()
+	situacionlaboral = models.BooleanField()
+
+
+
 
 #class Habilidad(models.Model):
 
