@@ -53,6 +53,7 @@ class Egresado(models.Model):
 	carta = models.FileField(upload_to = "carta", null=True, blank=True)
 	fechatitulacion = models.DateField(auto_now_add=True, null=True, blank=True)
 	promedio = models.DecimalField(decimal_places=2, max_digits=4, null=True, blank=True)
+	becario = models.BooleanField("Es Becario",default= False)
 	#modalidadtitulo = ???
 	#empleoformal = ???
 	#empleocual = ???
