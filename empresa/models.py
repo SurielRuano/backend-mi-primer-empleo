@@ -55,16 +55,22 @@ class BusinessModel(models.Model):
 
 class Vacante(models.Model):
 	id_empresa = models.ForeignKey(BusinessModel, related_name='vacante')
-	id_egresado = models.ForeignKey(Egresado, related_name='vacante')
+	id_egresado = models.ForeignKey(Egresado, related_name='vacante', blank=True, null=True)
 	puesto_solicitante = models.CharField(max_length=80)
 	activades = models.TextField()
 	dias = models.TextField()
 	horario_entrada = models.CharField(max_length=50)
-	horario_entrada_sabado = models.CharField(max_length=50)
+	horario_entrada_sabado = models.CharField(max_length=50, blank=True, null=True)
 	horario_salida = models.CharField(max_length=50)
-	horario_salida_sabado = models.CharField(max_length=50)
+	horario_salida_sabado = models.CharField(max_length=50, blank=True, null=True)
 	fecha_alta = models.CharField(max_length=50)
 	fecha_asignado = models.CharField(max_length=50)
+	vacante_activa = models.BooleanField(default=True)
 
 	def __str__(self):
 		return self.puesto_solicitante
+
+class Solicitudes(models.Model):
+	id_vacante = models.ForeignKey(Vacante, related_name='aspirante')
+	id_egresado = models.ForeignKey(Egresado, related_name='aspirante')
+
