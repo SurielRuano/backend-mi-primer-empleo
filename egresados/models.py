@@ -1,5 +1,7 @@
 from django.db import models
 
+#from empresa.models import Municipio
+
 # Create your models here.
 MASCULINO = 'M'
 FEMENINO = 'F'
@@ -29,7 +31,7 @@ class Egresado(models.Model):
 	#lugar = ???
 	sexo = models.CharField(max_length=1, choices=SEXO, default=MASCULINO, null=True, blank=True)
 	curp = models.CharField(max_length=18, null=True, blank=True)
-	#municipio = moodels.OneToOneField(Municipio)
+	#municipio = models.ForeignKey(Municipio)
 	calle = models.CharField(max_length=50, null=True, blank=True)
 	#no = ???
 	colonia = models.CharField(max_length=50, null=True, blank=True)

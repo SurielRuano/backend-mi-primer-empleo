@@ -2,13 +2,23 @@ from django.db import models
 from django.conf import settings
 from egresados.models import Egresado
 
+
+class Municipio(models.Model):
+
+	municipio = models.CharField(max_length=200)
+	region = models.CharField(max_length=5)
+	estado = models.CharField(max_length=100)
+
+
+
 # Create your models here.
 class BusinessModel(models.Model):
-	#id_mun = models.ForeignKey(Municipios, related_name='businessmodel')
+	
 	id_user = models.OneToOneField(settings.AUTH_USER_MODEL)
 	name = models.CharField(max_length=150)
 	street = models.CharField(max_length=100)
 	colony = models.CharField(max_length=100)
+	municipio = models.ForeignKey(Municipio)
 	cpostal = models.IntegerField()
 	adress_visits = models.TextField()
 	tel = models.CharField(max_length=10)
@@ -73,4 +83,6 @@ class Vacante(models.Model):
 class Solicitudes(models.Model):
 	id_vacante = models.ForeignKey(Vacante, related_name='aspirante')
 	id_egresado = models.ForeignKey(Egresado, related_name='aspirante')
+
+
 
