@@ -80,7 +80,7 @@ class Vacante(models.Model):
 	def __str__(self):
 		return self.puesto_solicitante
 
-class Solicitudes(models.Model):
+class Solicitud(models.Model):
 	id_vacante = models.ForeignKey(Vacante, related_name='aspirante')
 	id_egresado = models.ForeignKey(Egresado, related_name='aspirante')
 
@@ -94,7 +94,4 @@ class Expediente(models.Model):
 	vacante = models.ForeignKey(Vacante)
 	empresa = models.ForeignKey(BusinessModel)
 	
-
-
-
 

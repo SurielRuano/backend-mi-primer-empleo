@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import BusinessModel, Vacante
+from .models import BusinessModel, Vacante, Municipio, Solicitud, Expediente
 # Register your models here.
 
 
@@ -10,3 +10,6 @@ class BusinessModelAdmin(admin.ModelAdmin):
 
 admin.site.register(BusinessModel, BusinessModelAdmin)
 admin.site.register(Vacante)
+admin.site.register(Municipio)
+admin.site.register(Solicitud)
+admin.site.register(Expediente)
