@@ -1,6 +1,6 @@
 from django.db import models
 
-#from empresa.models import Municipio
+
 
 # Create your models here.
 MASCULINO = 'M'
@@ -103,14 +103,21 @@ class Experiencia(models.Model):
 
 class Expectativa(models.Model):
 
-	id_egresado = models.ForeignKey(Egresado)
+	id_egresado = models.OneToOneField(Egresado)
 	entrevista_lab = models.BooleanField()
-	monto_beca = models.FloatField()
-	aportacion = models.TextField(max_length=400)
-	logro = models.TextField(max_length=400)
-	logro_academico = models.CharField(max_length=400)
-	gasto_mensual = models.CharField(max_length=400)
-	empleo_buscado = models.CharField(max_length=400)
+	que_quieres = models.CharField(max_length=100)	
+	que_esperas = models.CharField(max_length=100)
+	uso_beca = models.CharField("Que haras con la beca?",max_length=100)
+	aportacion = models.TextField(max_length=100)
+	logro = models.TextField("Objetivo Profesional",max_length=100)
+	logro_academico = models.CharField("Objetivo Academico",max_length=100)
+	formacion = models.CharField("Objetivo Academico",max_length=20)
+	eleccion_correcta = models.BooleanField()
+	gasto_mensual = models.CharField(max_length=80)
+	empleo_buscado = models.BooleanField("Buscaste empleo")
+	tiempo_busqueda = models.CharField("Cuanto tiempo",max_length=80)
+	medios_busqueda = models.CharField("Que medios usaste para buscar",max_length=80)
+	
 
 
 class EstSocioEcon(models.Model):
@@ -120,10 +127,32 @@ class EstSocioEcon(models.Model):
 	(FEMENINO, 'Femenino'), 
 	)
 
-	id_egresado = models.ForeignKey(Egresado)
+	id_egresado = models.OneToOneField(Egresado)
 	edo_civil = models.CharField(max_length=50,choices = EDOC)
-	dependientes = models.IntegerField()
-	situacionlaboral = models.BooleanField()
+	dependientes = models.CharField(max_length=2)
+	situacionlaboral = models.CharField(max_length=20)
+	trabajo = models.CharField(max_length=30)
+	dependen_ti = models.BooleanField("Alguien depende de ti?")
+	cuantos_depend = models.IntegerField("Cuantos dependen de ti")
+	ingreso_mensual = models.CharField(max_length=20)
+	transporte = models.BooleanField()
+	vives_en = models.CharField(max_length=60)
+	cuantos_hermanos = models.CharField(max_length=20)
+	cuantos_papas = models.CharField(max_length=20)
+	cuantos_abuelos = models.CharField(max_length=20)
+	casa_techo = models.CharField(max_length=20)
+	casa_piso = models.CharField(max_length=20)
+	casa_pared = models.CharField(max_length=20)
+	numero_recamaras = models.CharField(max_length=20)
+	numero_banos = models.IntegerField()
+	numero_salas = models.IntegerField()	
+	numero_comedor = models.CharField(max_length=20)
+	numero_vehiculos =   models.IntegerField()	
+	numero_recamaras =  models.IntegerField()
+	gasto_mensual = models.CharField(max_length=20)
+	mayor_gasto = models.CharField(max_length=20)
+	otra_beca = models.BooleanField()
+
 
 
 

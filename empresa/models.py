@@ -86,3 +86,15 @@ class Solicitudes(models.Model):
 
 
 
+class Expediente(models.Model):
+
+	fecha = models.DateField()
+	observacion = models.CharField(max_length=400)
+	id_egresado = models.ForeignKey(Egresado)
+	vacante = models.ForeignKey(Vacante)
+	empresa = models.ForeignKey(BusinessModel)
+	
+
+
+
+
