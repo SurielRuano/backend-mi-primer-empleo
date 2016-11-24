@@ -3,7 +3,6 @@ from egresados.models import Egresado
 
 
 class sedeco(models.Model):
-
 	 nombre = models.CharField(max_length=100)
 	 usuario = models.CharField(max_length=100)
 	 clave = models.CharField(max_length=100)
@@ -14,7 +13,6 @@ class sedeco(models.Model):
 
 
 	 def __str__(self):
-
 	 	return self.nombre
 
 class encuesta(models.Model):

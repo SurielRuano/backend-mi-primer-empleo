@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     'administracion',
     'encuestas',
     'reportes',
-    'usuarios'
+    'usuarios',
 ]
 
 MIDDLEWARE = [

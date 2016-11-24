@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from administracion.models import sedeco,encuesta,reporteMensual
+from .models import sedeco, encuesta, reporteMensual
 # Register your models here.
 
 admin.site.register(sedeco)
