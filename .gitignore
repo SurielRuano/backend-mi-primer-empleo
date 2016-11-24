@@ -88,9 +88,9 @@ ENV/
 # Rope project settings
 .ropeproject
 
-#migraciones
 
-*/migrations
+
+
 
 #base de datos
 
